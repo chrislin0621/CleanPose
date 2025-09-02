@@ -97,7 +97,7 @@ python test.py --config config/REAL/camera_real.yaml --test_epoch 30
 python test_housecat6d.py --config config/HouseCat6D/housecat6d.yaml --test_epoch 150
 ```
 ## Results
-You can download our training logs, detailed metrics for each category and checkpoints [here]().
+You can download our training logs, detailed metrics for each category and checkpoints [here](https://drive.google.com/file/d/1JayhnaGBPBsp-wmjGcoPF5_Nka04ETng/view?usp=drive_link).
 ### REAL275 testset:
 
 | IoU25 | IoU50 | IoU75 | 5 degree 2 cm | 5 degree 5 cm | 10 degree 2 cm | 10 degree 5 cm |
