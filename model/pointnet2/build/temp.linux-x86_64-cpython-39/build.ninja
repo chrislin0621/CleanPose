@@ -1,0 +1,36 @@
+ninja_required_version = 1.3
+cxx = c++
+nvcc = /usr/local/cuda-11.8/bin/nvcc
+
+cflags = -pthread -B /croot/python-split_1715024103552/_h_env_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_plac/compiler_compat -Wno-unused-result -Wsign-compare -DNDEBUG -O2 -Wall -fPIC -O2 -isystem /croot/python-split_1715024103552/_h_env_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_plac/include -I/croot/python-split_1715024103552/_h_env_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_plac/include -fPIC -O2 -isystem /croot/python-split_1715024103552/_h_env_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_plac/include -fPIC -I/share/home/tj90055/.conda/envs/ag-pose/lib/python3.9/site-packages/torch/include -I/share/home/tj90055/.conda/envs/ag-pose/lib/python3.9/site-packages/torch/include/torch/csrc/api/include -I/share/home/tj90055/.conda/envs/ag-pose/lib/python3.9/site-packages/torch/include/TH -I/share/home/tj90055/.conda/envs/ag-pose/lib/python3.9/site-packages/torch/include/THC -I/usr/local/cuda-11.8/include -I/share/home/tj90055/.conda/envs/ag-pose/include/python3.9 -c
+post_cflags = -O2 -I/share/home/tj90055/linx/AG-Pose/model/pointnet2/_ext_src/include -DTORCH_API_INCLUDE_EXTENSION_H '-DPYBIND11_COMPILER_TYPE="_gcc"' '-DPYBIND11_STDLIB="_libstdcpp"' '-DPYBIND11_BUILD_ABI="_cxxabi1011"' -DTORCH_EXTENSION_NAME=_ext -D_GLIBCXX_USE_CXX11_ABI=0 -std=c++14
+cuda_cflags = -I/share/home/tj90055/.conda/envs/ag-pose/lib/python3.9/site-packages/torch/include -I/share/home/tj90055/.conda/envs/ag-pose/lib/python3.9/site-packages/torch/include/torch/csrc/api/include -I/share/home/tj90055/.conda/envs/ag-pose/lib/python3.9/site-packages/torch/include/TH -I/share/home/tj90055/.conda/envs/ag-pose/lib/python3.9/site-packages/torch/include/THC -I/usr/local/cuda-11.8/include -I/share/home/tj90055/.conda/envs/ag-pose/include/python3.9 -c
+cuda_post_cflags = -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr --compiler-options ''"'"'-fPIC'"'"'' -O2 -I/share/home/tj90055/linx/AG-Pose/model/pointnet2/_ext_src/include -DTORCH_API_INCLUDE_EXTENSION_H '-DPYBIND11_COMPILER_TYPE="_gcc"' '-DPYBIND11_STDLIB="_libstdcpp"' '-DPYBIND11_BUILD_ABI="_cxxabi1011"' -DTORCH_EXTENSION_NAME=_ext -D_GLIBCXX_USE_CXX11_ABI=0 -gencode=arch=compute_80,code=compute_80 -gencode=arch=compute_80,code=sm_80 -std=c++14
+ldflags = 
+
+rule compile
+  command = $cxx -MMD -MF $out.d $cflags -c $in -o $out $post_cflags
+  depfile = $out.d
+  deps = gcc
+
+rule cuda_compile
+  depfile = $out.d
+  deps = gcc
+  command = $nvcc  $cuda_cflags -c $in -o $out $cuda_post_cflags
+
+
+
+build /share/home/tj90055/linx/AG-Pose/model/pointnet2/build/temp.linux-x86_64-cpython-39/_ext_src/src/ball_query.o: compile /share/home/tj90055/linx/AG-Pose/model/pointnet2/_ext_src/src/ball_query.cpp
+build /share/home/tj90055/linx/AG-Pose/model/pointnet2/build/temp.linux-x86_64-cpython-39/_ext_src/src/ball_query_gpu.o: cuda_compile /share/home/tj90055/linx/AG-Pose/model/pointnet2/_ext_src/src/ball_query_gpu.cu
+build /share/home/tj90055/linx/AG-Pose/model/pointnet2/build/temp.linux-x86_64-cpython-39/_ext_src/src/bindings.o: compile /share/home/tj90055/linx/AG-Pose/model/pointnet2/_ext_src/src/bindings.cpp
+build /share/home/tj90055/linx/AG-Pose/model/pointnet2/build/temp.linux-x86_64-cpython-39/_ext_src/src/group_points.o: compile /share/home/tj90055/linx/AG-Pose/model/pointnet2/_ext_src/src/group_points.cpp
+build /share/home/tj90055/linx/AG-Pose/model/pointnet2/build/temp.linux-x86_64-cpython-39/_ext_src/src/group_points_gpu.o: cuda_compile /share/home/tj90055/linx/AG-Pose/model/pointnet2/_ext_src/src/group_points_gpu.cu
+build /share/home/tj90055/linx/AG-Pose/model/pointnet2/build/temp.linux-x86_64-cpython-39/_ext_src/src/interpolate.o: compile /share/home/tj90055/linx/AG-Pose/model/pointnet2/_ext_src/src/interpolate.cpp
+build /share/home/tj90055/linx/AG-Pose/model/pointnet2/build/temp.linux-x86_64-cpython-39/_ext_src/src/interpolate_gpu.o: cuda_compile /share/home/tj90055/linx/AG-Pose/model/pointnet2/_ext_src/src/interpolate_gpu.cu
+build /share/home/tj90055/linx/AG-Pose/model/pointnet2/build/temp.linux-x86_64-cpython-39/_ext_src/src/sampling.o: compile /share/home/tj90055/linx/AG-Pose/model/pointnet2/_ext_src/src/sampling.cpp
+build /share/home/tj90055/linx/AG-Pose/model/pointnet2/build/temp.linux-x86_64-cpython-39/_ext_src/src/sampling_gpu.o: cuda_compile /share/home/tj90055/linx/AG-Pose/model/pointnet2/_ext_src/src/sampling_gpu.cu
+
+
+
+
+
