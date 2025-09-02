@@ -4,7 +4,7 @@ Official implementation of our CleanPose, the first solution to mitigate the con
 
 ![](/main_v3.png)
 
-[[paper](https://arxiv.org/pdf/2502.01312)]
+[![Conference](https://img.shields.io/badge/ICCV-2025-slateblue)](https://iccv.thecvf.com/Conferences/2025) [![Paper](https://img.shields.io/badge/arXiv-2502.01312-orange)](https://arxiv.org/pdf/2502.01312)
 
 ## Environment Settings
 The code has been tested with
