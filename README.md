@@ -133,5 +133,4 @@ If our work is useful to you, please consider citing our paper using the followi
 ```
 ## License
 Our code is released under MIT License. 
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
 
