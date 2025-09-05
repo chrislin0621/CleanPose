@@ -76,6 +76,7 @@ model
 ├── pointnet2_ulip
 │   ├── pretrained_model
 │       └── pretrained_models_ckpt_zero-sho_classification_checkpoint_pointnet2_ssg.pt
+├── resnet18-5c106cde.pth
 ```
 
 ## Train
