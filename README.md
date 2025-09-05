@@ -66,7 +66,7 @@ You can generate the queue list with following command or utilize the pre-extrac
 python queue_extraction.py
 ```
 ### ULIP model weights
-Download the pretrained weights of PointBERT and Pointnet2_ssg from [ULIP Hugging Face](https://huggingface.co/datasets/SFXX/ulip) or [this link](https://drive.google.com/drive/folders/1yQhaP7AWtgu5NOW1GTVO23ytcGLt_wPW?usp=drive_link). And the pretrained weights file structure is as follows:
+Download the pretrained weights of PointBERT, Pointnet2_ssg and Resnet18 from [ULIP Hugging Face](https://huggingface.co/datasets/SFXX/ulip) or [this link](https://drive.google.com/drive/folders/1yQhaP7AWtgu5NOW1GTVO23ytcGLt_wPW?usp=drive_link). And the pretrained weights file structure is as follows:
 ```
 model
 ├── pointbert
