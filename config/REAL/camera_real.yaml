@@ -23,10 +23,11 @@ test_dataset:
   dataset_name: real
   tensor_list_dir: log/camera_real/ckpt/tensor_list.pkl
 
-select_num: 12
+
 
 pose_net:
   rgb_backbone: dino    # [resnet, dino, featup]
+  select_num: 12
   distillation_feat_dim: 768 #[256(pn),768(pointbert)]
   cat_num: 6
   FDEncoder:
