@@ -21,13 +21,14 @@ test_dataset:
   dataset_name: housecat6d
   tensor_list_dir: log/housecat6d/ckpt/tensor_list_housecat6d_100.pkl'
 
-select_num: 12
+
 
 pose_net:
   rgb_backbone: dino    # [resnet, dino]
   cat_num: 10
   distillation_feat_dim: 768 #[256(pn),768(pointbert)]
   angle_range: 20
+  select_num: 12
   FDEncoder:
     feat_dim: 256
     AttnLayer:
