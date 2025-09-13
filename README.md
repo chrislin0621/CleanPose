@@ -61,7 +61,7 @@ housecat6d
 
 ## Other Preparation
 ### Confounder queue generation
-You can generate the queue list with following command or utilize the pre-extracted pkl file from [this link](https://drive.google.com/drive/folders/15D9kkISuEP1z6yBZhBItdp4N26wDYcJB?usp=drive_link).
+You can generate the queue list with following command or utilize the pre-extracted pkl file from [this link](https://drive.google.com/drive/folders/15D9kkISuEP1z6yBZhBItdp4N26wDYcJB?usp=drive_link). Subsequently, you should specify the 'init_tensor_list_dir' in the config file.
 ```
 python queue_extraction.py
 ```
